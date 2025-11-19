@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BookAudio, Bell, Settings, LogOut, User, LayoutDashboard, Library, Mic2, CreditCard } from 'lucide-react';
 import './DashboardNav.css';
 
@@ -10,6 +10,7 @@ interface DashboardNavProps {
 
 const DashboardNav = ({ showUserMenu, setShowUserMenu }: DashboardNavProps) => {
   const [showNotifications, setShowNotifications] = useState(false);
+  const location = useLocation();
 
   const notifications = [
     { id: 1, text: 'Chapter conversion completed for "The Great Novel"', time: '2m ago', unread: true },
@@ -18,6 +19,13 @@ const DashboardNav = ({ showUserMenu, setShowUserMenu }: DashboardNavProps) => {
   ];
 
   const unreadCount = notifications.filter(n => n.unread).length;
+
+  const isActive = (path: string) => {
+    if (path === '/dashboard') {
+      return location.pathname === '/dashboard';
+    }
+    return location.pathname.startsWith(path);
+  };
 
   return (
     <nav className="dashboard-nav">
@@ -30,19 +38,19 @@ const DashboardNav = ({ showUserMenu, setShowUserMenu }: DashboardNavProps) => {
 
         {/* Center Navigation */}
         <div className="dashboard-nav-links">
-          <Link to="/dashboard" className="nav-link active">
+          <Link to="/dashboard" className={`nav-link ${isActive('/dashboard') ? 'active' : ''}`}>
             <LayoutDashboard size={18} />
             <span>Dashboard</span>
           </Link>
-          <Link to="/dashboard/books" className="nav-link">
+          <Link to="/dashboard/books" className={`nav-link ${isActive('/dashboard/books') ? 'active' : ''}`}>
             <Library size={18} />
             <span>My Books</span>
           </Link>
-          <Link to="/dashboard/voices" className="nav-link">
+          <Link to="/dashboard/voices" className={`nav-link ${isActive('/dashboard/voices') ? 'active' : ''}`}>
             <Mic2 size={18} />
             <span>Voices</span>
           </Link>
-          <Link to="/dashboard/settings" className="nav-link">
+          <Link to="/dashboard/settings" className={`nav-link ${isActive('/dashboard/settings') ? 'active' : ''}`}>
             <Settings size={18} />
             <span>Settings</span>
           </Link>
