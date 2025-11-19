@@ -7,6 +7,8 @@ import Books from './pages/Books';
 import BookDetails from './pages/BookDetails';
 import Voices from './pages/Voices';
 import Settings from './pages/Settings';
+import Profile from './pages/Profile';
+import Subscription from './pages/Subscription';
 
 const App = () => {
   return (
@@ -20,6 +22,8 @@ const App = () => {
         <Route path="/dashboard/book/:id" element={<BookDetails />} />
         <Route path="/dashboard/voices" element={<Voices />} />
         <Route path="/dashboard/settings" element={<Settings />} />
+        <Route path="/dashboard/profile" element={<Profile />} />
+        <Route path="/dashboard/subscription" element={<Subscription />} />
       </Routes>
     </Router>
   );
