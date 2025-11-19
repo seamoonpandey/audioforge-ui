@@ -113,20 +113,20 @@ const DashboardNav = ({ showUserMenu, setShowUserMenu }: DashboardNavProps) => {
                   </div>
                 </div>
                 <div className="dropdown-divider"></div>
-                <Link to="/dashboard/profile" className="dropdown-item">
+                <Link to="/dashboard/profile" className="dropdown-item" onClick={() => setShowUserMenu(false)}>
                   <User size={18} />
                   <span>Profile</span>
                 </Link>
-                <Link to="/dashboard/subscription" className="dropdown-item">
+                <Link to="/dashboard/subscription" className="dropdown-item" onClick={() => setShowUserMenu(false)}>
                   <CreditCard size={18} />
                   <span>Subscription</span>
                 </Link>
-                <Link to="/dashboard/settings" className="dropdown-item">
+                <Link to="/dashboard/settings" className="dropdown-item" onClick={() => setShowUserMenu(false)}>
                   <Settings size={18} />
                   <span>Settings</span>
                 </Link>
                 <div className="dropdown-divider"></div>
-                <Link to="/login" className="dropdown-item logout">
+                <Link to="/login" className="dropdown-item logout" onClick={() => setShowUserMenu(false)}>
                   <LogOut size={18} />
                   <span>Logout</span>
                 </Link>
