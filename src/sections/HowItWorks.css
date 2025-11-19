@@ -1,0 +1,147 @@
+.how-it-works {
+  padding: 8rem 0;
+  background: var(--bg-secondary);
+  position: relative;
+}
+
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+}
+
+.how-it-works-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.step-card {
+  text-align: center;
+  position: relative;
+  padding: 2rem;
+}
+
+.step-number {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.step-icon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  border-radius: 24px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--primary);
+  transition: all 0.4s ease;
+}
+
+.step-card:hover .step-icon {
+  transform: scale(1.1) rotateY(10deg);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.step-description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 350px;
+  margin: 0 auto;
+}
+
+.step-connector {
+  position: absolute;
+  top: 120px;
+  right: -3rem;
+  width: 3rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0.3;
+}
+
+.step-connector::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+  
+  .step-connector {
+    top: auto;
+    bottom: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%) rotate(90deg);
+    width: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .how-it-works {
+    padding: 4rem 0;
+  }
+  
+  .how-it-works-container {
+    padding: 0 1rem;
+  }
+  
+  .step-card {
+    padding: 1rem;
+  }
+  
+  .step-number {
+    font-size: 3rem;
+  }
+  
+  .step-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .step-title {
+    font-size: 1.25rem;
+  }
+  
+  .step-description {
+    font-size: 0.95rem;
+  }
+}
